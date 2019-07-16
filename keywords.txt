@@ -1,0 +1,48 @@
+##########################################
+# Syntax Coloring Map For Step_CYC10_I2C
+##########################################
+
+##########################################
+# Datatypes (KEYWORD1)
+##########################################
+
+Step_CYC10_I2C	KEYWORD1
+I2C_STRUCT	KEYWORD1
+
+##########################################
+# Methods and Functions (KEYWORD2)
+##########################################
+
+masterWrite	KEYWORD2
+masterRead	KEYWORD2
+slave	KEYWORD2
+
+
+##########################################
+# Instances (KEYWORD3)
+##########################################
+
+I2C	KEYWORD3
+
+##########################################
+# Constants (LITERAL1)
+##########################################
+I2C_CSR_SYNC_RESET	LITERAL1
+I2C_CSR_START	LITERAL1
+I2C_CSR_STOP	LITERAL1
+I2C_CSR_READ	LITERAL1
+I2C_CSR_WRITE	LITERAL1
+I2C_CSR_MASTER	LITERAL1
+I2C_CSR_SLAVE	LITERAL1
+I2C_CSR_RESTART	LITERAL1
+I2C_CSR_IRQ_ENABLE	LITERAL1
+I2C_CSR_IRQ_DISABLE	LITERAL1
+I2C_MASTER_IDLE_FLAG	LITERAL1
+I2C_MASTER_NO_ACK_FLAG	LITERAL1
+I2C_MASTER_DATA_READY	LITERAL1
+I2C_MASTER_DATA_REQ	LITERAL1
+I2C_SLAVE_NO_ACK_FLAG	LITERAL1
+I2C_SLAVE_DATA_READY	LITERAL1
+I2C_SLAVE_DATA_REQ	LITERAL1
+I2C_SLAVE_ADDR_MATCH	LITERAL1
+I2C_TEN_BIT_HEADER	LITERAL1

@@ -71,12 +71,15 @@ void Step_CYC10_I2C::masterWrite(uint8_t i2c_addr, uint8_t reg_addr, uint8_t dat
 
    (*REG_I2C_CSR) = I2C_CSR_START | I2C_CSR_WRITE | I2C_CSR_MASTER | I2C_CSR_IRQ_DISABLE;
 
-   _I2C_wait (I2C_MASTER_DATA_REQ, reg_addr);
+   write_csr (mstatus, 0);
+    _I2C_wait (I2C_MASTER_DATA_REQ, reg_addr);
 
 
-   _I2C_wait (I2C_MASTER_DATA_REQ, data); 
+    _I2C_wait (I2C_MASTER_DATA_REQ, data); 
 
-   _I2C_wait (I2C_MASTER_DATA_REQ); 
+    _I2C_wait (I2C_MASTER_DATA_REQ);
+
+   write_csr (mstatus, 0);    
   
    (*REG_I2C_CSR) = I2C_CSR_STOP | I2C_CSR_WRITE | I2C_CSR_MASTER | I2C_CSR_IRQ_DISABLE;
 
@@ -119,9 +122,11 @@ void Step_CYC10_I2C::masterRead(uint8_t i2c_addr, uint8_t reg_addr, uint8_t buf[
    (*REG_I2C_DATA) = t;
    (*REG_I2C_CSR)  = I2C_CSR_START | I2C_CSR_WRITE | I2C_CSR_MASTER | I2C_CSR_IRQ_DISABLE;
 
-   
+   write_csr (mstatus, 0);
+    
     _I2C_wait (I2C_MASTER_DATA_REQ, reg_addr);
 
+   write_csr (mstatus, interrupt_saved_mstatus); 
     
     t = ((uint8_t)i2c_addr) & 127;
     t <<= 1;
